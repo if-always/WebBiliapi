@@ -1,0 +1,192 @@
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>哔哩哔哩数据可视化</title>
+    <link rel="shortcut icon" href="{{url_for('static',filename='img/a.jpg')}}">
+	<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href='http://www.youziku.com/webfont/CSS/5a5eb6e5723496ed8dc0cfd792fd4687' rel='stylesheet' type='text/css' />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="{{url_for('static',filename='js/ECharts/echarts-wordcloud.js')}}"></script>
+    <script src="{{url_for('static',filename='js/ECharts/echarts.js')}}"></script>{% block style %} {% endblock %}
+    <style>
+    	body {
+        font-family: Microsoft Yahei;
+        background-color: #f5f5f5;
+    	}
+
+    	#header {
+        background-image: url("{{url_for('static',filename='img/1.jpg')}}");
+        background-attachment: fixed;
+        background-size: cover;
+        padding: 60px 80px;
+        position: relative;
+        box-shadow: 0px 3px 3px rgba(20, 20, 20, 0.3) inset;
+    	}
+
+
+
+		#header #nav {
+        position: absolute;
+        right: 80px;
+        top: 60px;
+    	}
+    
+	    #header #nav a {
+	        text-decoration: none;
+	        display: inline-block;
+	        color: black;
+	        background-color: transparent;
+	        padding: 5px 15px;
+	        border: 1px solid black;
+	        border-radius: 5px;
+	        margin-right: 10px;
+	        cursor: pointer;
+	        transition: color .3s;
+	        -o-transition: color .3s;
+	        -ms-transition: color .3s;
+	        -moz-transition: color .3s;
+	        -webkit-transition: color .3s;
+	        transition: background-color .3s;
+	        -o-transition: background-color .3s;
+	        -ms-transition: background-color .3s;
+	        -moz-transition: background-color .3s;
+	        -webkit-transition: background-color .3s;
+	    }
+	    
+	    #header #nav a.active {
+	        color: #37a;
+	        background-color: #cde6c7;
+	        box-shadow: 1px 1px 3px rgba(20, 20, 20, 0.6);
+	    }
+
+
+
+
+
+    	#header h1 {
+        color: #37a;
+        margin-bottom: 30px;
+        font-family: Helvetica;
+        font-size: 25px;
+    	}
+
+    	#header p {
+        color: #555;
+        margin-right: 200px;
+        text-indent: 2em;
+        font-family: Helvetica;
+        font-size: 15px;
+    	}
+    
+	    #header p a {
+	        text-decoration: none;
+	        color: #6FA4CA;
+	        margin-left: 2px;
+	        margin-right: 2px;
+	        transition: color .3s;
+	        -o-transition: color .3s;
+	        -ms-transition: color .3s;
+	        -moz-transition: color .3s;
+	        -webkit-transition: color .3s;
+	    }
+	    
+	    #header p a:hover {
+	        color: #24597F;
+	    }
+	    
+	    #header p .em {
+	        color: #DA6D6D;
+	        margin-left: 2px;
+	        margin-right: 2px;
+	    }
+
+
+		#footer {
+        text-align: center;
+        color: white;
+        background-color: #333;
+        padding: 30px;
+        font-size: 15px;
+    	}
+    
+	    #footer p {
+	        margin-bottom: 0;
+	    }
+	    
+	    #footer a {
+	        text-decoration: none;
+	        color: #6FA4CA;
+	        margin-left: 2px;
+	        margin-right: 2px;
+	        transition: color .3s;
+	        -o-transition: color .3s;
+	        -ms-transition: color .3s;
+	        -moz-transition: color .3s;
+	        -webkit-transition: color .3s;
+	    }
+	    
+	    #footer p a:hover {
+	        color: #24597F;
+	    }
+
+
+    </style>
+
+    <script>
+    // 加载echarts
+    require.config({
+        paths: {
+            echarts: "{{url_for('static',filename='js/ECharts')}}"
+        },
+        packages: [{
+            name: 'BMap',
+            location: "{{url_for('static',filename='js/BMap')}}",
+            main: 'main'
+        }]
+    });
+    </script>
+</head>
+<body>
+
+	<div id="header">
+
+
+		<div id="nav">
+            <a href="{{url_for('index')}}" id="nav1">
+                统计
+            </a>
+            <a href="{{url_for('score')}}" id="nav2">
+                评分
+            </a>
+            <a href="{{url_for('search')}}" id="nav3">
+                搜索
+            </a>
+        </div>
+
+
+
+
+
+
+        
+        <h1>哔哩哔哩<span style="font-family:JetLinkMediumOldStamp451548;color:#deab8a;position:relative;top:-1px;font-size:28px;"><span style="margin-left:10px;margin-right:5px;"><i>数据</i></span><i>可视化</i></span></h1>
+        <p>视频原始数据来自<a href="https://www.bilibili.com/ranking/all/0/0/1" target="_blank">哔哩哔哩官网视频每日排行榜</a>，使用python的<a href="https://2.python-requests.org/en/master/" target="_blank">requests</a>包<span class="em">爬取</span>数据、<a href="https://pypi.org/project/pyquery/" target="_blank">Pyquery</a>包完成<span class="em">解析</span>，并且进行数据的<span class="em">预处理</span>和<span class="em">清洗</span>。</p>
+        <p>最终一共获取了<span class="em">30000</span>条视频记录，每条记录包含以下<span class="em">20</span>个主要字段：视频id、弹幕id、视频时长、链接、排名、星期、得分、标题、类型、作者名称、作者url、作者id、观看数、弹幕数、回复数、收藏数、喜欢数、分享数、硬币数、分布时间。</p>
+        <p>在此基础上，使用<a href="http://echarts.baidu.com/" target="_blank">Echarts</a>进行简单的数据可视化，从而完整地展示网络数据<span class="em">采集</span>、<span class="em">存储</span>、<span class="em">处理</span>和<span class="em">使用</span>四个环节所涉及的技术链。</p>
+	</div>
+	<div id="main">
+        {% block body %} {% endblock %}
+    </div>
+
+    <div id="footer">
+        <p>Copyright © 2019 <a href="https://www.jianshu.com/u/426a6f0a2dfb" target="_blank">薄堉林</a>&nbsp &nbsp if-always@163.com</p>
+    </div>
+
+			
+</body>
+
+</html>

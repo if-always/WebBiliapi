@@ -1,0 +1,209 @@
+{% extends 'layout.html' %}{% block style %}
+
+<style>
+#search {
+    padding: 50px 80px;
+}
+
+#search #searchForm {
+    position: relative;
+}
+
+#search #searchForm #message {
+    position: absolute;
+    top: 6px;
+    left: 270px;
+    color: #F95555;
+    display: none;
+}
+
+#search #searchForm .input-group {
+    width: 250px;
+}
+
+#search #searchForm #submit {
+    cursor: pointer;
+    transition: color .3s;
+    -o-transition: color .3s;
+    -ms-transition: color .3s;
+    -moz-transition: color .3s;
+    -webkit-transition: color .3s;
+    transition: background-color .3s;
+    -o-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+}
+
+#search #searchForm #submit:hover {
+    background-color: #bbb;
+    color: white;
+}
+
+#search #hot,
+#search #searchResult {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#search .video {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+#search .video .video_cover {
+    width: 180px;
+    height: 140px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 10;
+    top: 15;
+
+    transition: box-shadow .3s;
+    -o-transition: box-shadow .3s;
+    -ms-transition: box-shadow .3s;
+    -moz-transition: box-shadow .3s;
+    -webkit-transition: box-shadow .3s;
+}
+
+#search .video .video_cover:hover {
+    box-shadow: 5px 5px 10px rgba(20, 20, 20, 0.4);
+}
+
+#search .video .video_info {
+    margin-left: 280px;
+}
+
+#search .video .video_info a {
+    text-decoration: none;
+    color: #6FA4CA;
+    transition: color .3s;
+    -o-transition: color .3s;
+    -ms-transition: color .3s;
+    -moz-transition: color .3s;
+    -webkit-transition: color .3s;
+}
+
+#search .video .video_info a:hover {
+    color: #24597F;
+}
+
+#search .video .video_info p {
+    color: #555;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+<script>
+$(document).ready(function() {
+    $('#header #nav #nav3').addClass('active');
+
+    $('#header #nav a').mouseenter(function() {
+        $('#header #nav a').removeClass('active');
+        $(this).addClass('active');
+    });
+    $('#header #nav').mouseleave(function() {
+        $('#header #nav a').removeClass('active');
+        $('#header #nav #nav3').addClass('active');
+    });
+});
+</script>
+
+<div id="search">
+    <div class="form-group" id="searchForm">
+        <div class="input-group">
+            <input type="text" name="keyword" class="form-control" placeholder="输入关键词">
+            <div class="input-group-addon" id="submit"><i class="fa fa-fw fa-paper-plane-o"></i></div>
+        </div>
+        <p id="message">关键词都不给个怎么搜索……</p>
+    </div>
+	<div id="hot">
+        {% for item in videos %}
+        <div class="video">
+            <a href="{{item.href}}" target="_blank">
+                <div class="video_cover" style="background-image:url({{item.imgurl}})"></div>
+            </a>
+            <div class="video_info">
+                <h4>
+                    
+
+                    <a href="{{item.href}}" target="_blank">{{item.title}}</a><br>
+                    
+                
+                    
+                </h4>
+                
+                <br>
+				<br>
+				<p>作者&nbsp;&nbsp;<a style="color:green" href="{{item.owurl}}" target="_blank">{{item.owner}}</a></p>
+				<p>类型&nbsp;&nbsp;{{item.tname}}</p>
+                
+                
+                <!-- <p>url&nbsp;&nbsp;{{item.imgurl}}</p> -->
+                <!-- <p>语言&nbsp;&nbsp;{{item.language}}</p> -->
+                <p>时长&nbsp;&nbsp;{{item.length}}分钟</p>
+                <p>得分&nbsp;&nbsp;<span style="color:red">{{item.score}}分</span></p>
+                <p>观看&nbsp;&nbsp;<span style="color:#deab8a">{{item.views}}</span>&nbsp;&nbsp;&nbsp;喜欢&nbsp;&nbsp;<span style="color:#deab8a">{{item.likes}}</span>&nbsp;&nbsp;&nbsp;回复&nbsp;&nbsp;<span style="color:#deab8a">{{item.reply}}</span>&nbsp;&nbsp;&nbsp;弹幕&nbsp;&nbsp;<span style="color:#deab8a">{{item.danmu}}</span>&nbsp;&nbsp;&nbsp;分享&nbsp;&nbsp;<span style="color:#deab8a">{{item.share}}</span></p>
+                <!-- <h5 style="color:#555;">剧情简介</h5>
+                <p style="text-indent:2em;color:#777;">
+                    {% for d in item.description %} {{d}}
+                    <br> {% endfor %}
+                </p> -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="searchResult" style="display:none;">
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#search #submit').click(function() {
+        var keyword = $('#search input[name="keyword"]').val();
+        if (keyword == '') {
+            $('#search #message').fadeIn();
+            $('#search #hot').show();
+            $('#search #searchResult').hide()
+        } else {
+            $('#search #message').fadeOut();
+            $('#search #hot').hide();
+            $.ajax({
+                url: '{{url_for("keyword")}}',
+                type: 'POST',
+                data: {
+                    keyword: keyword
+                },
+                dataType: 'json',
+                error: function() {},
+                success: function(data) {
+                    $('#search #searchResult').empty();
+                    var  videos = data['videos'];
+                    var temp = '<p style="margin-bottom:20px;">共<span style="color:#2A9662;margin-left:5px;margin-right:5px;">' + videos.length + '</span>条标题含<span style="color:#FF4949;margin-left:5px;margin-right:5px;">' + keyword + '</span>的视频</p>';
+                    $('#search #searchResult').append(temp)
+                    for (var i = 0; i < videos.length; i++) {
+                        var item = '<div class="video"><a href="' + videos[i]["href"] + '" target="_blank"><div class="video_cover" style="background-image:url(' + videos[i]["imgurl"] + ')"></div></a><div class="video_info"><h4><a href="' + videos[i]["href"] + '" target="_blank">' + videos[i]["title"]+'</h4><br><br>';
+                        
+                        item = item + '<p>作者&nbsp;&nbsp;<span style=color:green>'+videos[i]['owner']+ '</p><p>类型&nbsp;&nbsp;' + videos[i]["tname"] + '</p><p style=color:green>时长&nbsp;&nbsp;'+videos[i]['length']+'</p><p>得分&nbsp;&nbsp;<span style=color:red>'+videos[i]['score']+'</span></p>';
+
+                        item = item + '<p>观看&nbsp;&nbsp;<span style="color:#deab8a">'+videos[i]['views']+'</span>&nbsp;&nbsp;&nbsp;喜欢&nbsp;&nbsp;<span style="color:#deab8a">'+videos[i]['likes']+'</span>&nbsp;&nbsp;&nbsp;回复&nbsp;&nbsp;<span style="color:#deab8a">'+videos[i]['reply']+'</span>&nbsp;&nbsp;&nbsp;弹幕&nbsp;&nbsp;<span style="color:#deab8a">'+videos[i]['danmu']+'</span>&nbsp;&nbsp;&nbsp;分享&nbsp;&nbsp;<span style="color:#deab8a">'+videos[i]['share']+'</span></p>';
+                        
+                        item = item + '</p></div></div>';
+                        $('#search #searchResult').append(item);
+                    }
+                    $('#search #searchResult').show();
+                }
+            });
+        }
+    });
+});
+</script>
+{% endblock %}
+

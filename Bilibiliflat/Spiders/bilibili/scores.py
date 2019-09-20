@@ -1,8 +1,8 @@
 import time
 import datetime
 import requests
+from Bilibiliflat.loggings import initLogging
 from Bilibiliflat.Spiders.bilibili.Header import Get_headers
-from Bilibiliflat.Spiders.bilibili.Loggings import initLogging
 from pyquery import PyQuery as pq
 
 class Biliscores(object):
@@ -10,7 +10,7 @@ class Biliscores(object):
 	def __init__(self, arg):
 		super(Biliscores, self).__init__()
 		self.url = arg
-		self.logger = initLogging("Bilibili.log")
+		self.logger = initLogging("Loggings/spider.log")
 	def Get_resqs(self,url,headers):
 		
 		res = requests.get(url=url,headers=headers)
@@ -77,7 +77,7 @@ class Biliscores(object):
 
 
 				}
-				self.logger.info(rank)
+				self.logger.info(str(rank) + ':'+str(title))
 			except Exception as e:
 				print(e)
 				self.logger.error(title + " " +str(e))

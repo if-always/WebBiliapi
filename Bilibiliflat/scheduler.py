@@ -1,9 +1,10 @@
 import time
-from Bilibiliflat.api import *
+from Bilibiliflat.Webapis.run import *
 from Bilibiliflat.config import *
 from Bilibiliflat.generator import *
 from multiprocessing import Process
-
+from Bilibiliflat.loggings import initLogging
+logger = initLogging("Loggings/main.log")
 
 class Scheduler(object):
     
@@ -11,25 +12,23 @@ class Scheduler(object):
     def spider(cycle=CYCLE):
 
 
-        while True:
-            print('爬虫进程运行')
-            #try:
+        #while True:
+        
+        try:
+            logger.info('爬虫模块正在运行')
             for website, cls in GENERATOR_MAP.items():
                 a = cls + '(website="' + website + '")'
                 generator = eval(cls + '(website="' + website + '")')
                 generator.run()
-                print('爬虫程序结束')
-                #generator.close()
-                cycle += 1
-            if cycle > 21:
-                break
-            #except Exception as e:
-            #    print(e.args)
-            #time.sleep(20)
+            logger.info('爬虫模块结束运行')
+                
+        except Exception as e:
+           logger.error(e)
+        
     @staticmethod
     def webapi():
-        print('API接口开始运行')
-        app.run(host=API_HOST, port=API_PORT)
+        logger.info('API接口开始运行')
+        app.run(debug=True)
     
     def run(self):
 

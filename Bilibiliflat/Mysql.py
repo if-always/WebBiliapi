@@ -2,7 +2,7 @@ import time
 import pymysql
 from Bilibiliflat.config import *
 from Bilibiliflat.loggings import initLogging
-logger = initLogging("sql.log")
+logger = initLogging("Loggings/sql.log")
 
 
 def Connect(dbname):
@@ -20,9 +20,9 @@ def Connect(dbname):
 		
 
 
-def insert_by_args(db_name, table_name, user,passwd,data_dict_list, arg_list):
+def Insert_args(db_name, table_name, data_dict_list, arg_list):
 	
-	db_con, db_cur = connect(db_name,user,passwd)
+	db_con, db_cur = Connect(db_name)
 	insertion_part1 = ','.join(arg_list)
 	insertion_part2 = ','.join(["%s" for i in range(len(arg_list))])
 	insert_clause = '''INSERT INTO %s (%s) VALUES (%s)''' % (table_name, insertion_part1, insertion_part2)
@@ -35,12 +35,12 @@ def insert_by_args(db_name, table_name, user,passwd,data_dict_list, arg_list):
 	insert_param = list(insert_param_set)
 
 	try:
-		print(insert_clause)
-		print('正在插入数据...')
-		print(insert_param)
+		
+		logger.info('正在插入数据...')
+		logger.info(insert_clause)
 		db_cur.executemany(insert_clause,insert_param)
 		db_con.commit()
-		print("插入完成")
+		logger.info("插入完成")
 	except Exception as e:
 		logger.error(e)
 		logger.error('批量插入失败，进行数据插入回滚')
@@ -63,21 +63,3 @@ def Select_sql(dbname,sql):
 	db_con.close()
 	return data_list
 
-# b = "Bilibili"
-# a = Select_sql("Args",f"""SELECT * FROM `spiders`WHERE `names` = '{b}'""")
-
-# print(a)
-# def A(num):
-# 	print ('Process:', num)
-# 	time.sleep(10)
-# def B(num):
-# 	print ('Process:', num)
-# 	time.sleep(1)
-
-# if __name__ == '__main__':
-#     if True:
-#         p = multiprocessing.Process(target=A, args=(1,))
-#         p.start()
-#     if True:
-#     	q = multiprocessing.Process(target=B, args=(2,))
-#     	q.start()
