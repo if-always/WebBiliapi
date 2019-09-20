@@ -3,7 +3,7 @@ import requests
 from Bilibiliflat.Mysql import *
 from Bilibiliflat.loggings import initLogging
 from Bilibiliflat.Spiders.bilibili.scores import Biliscores
-logger = initLogging("Loggings/main.log")
+logger = initLogging("F:/GitHub/Webbiliapi/Loggings/main.log")
 
 
 class SpiderGenerator(object):

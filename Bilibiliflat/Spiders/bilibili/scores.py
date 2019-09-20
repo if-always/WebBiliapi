@@ -10,7 +10,7 @@ class Biliscores(object):
 	def __init__(self, arg):
 		super(Biliscores, self).__init__()
 		self.url = arg
-		self.logger = initLogging("Loggings/spider.log")
+		self.logger = initLogging("F:/GitHub/Webbiliapi/Loggings/spider.log")
 	def Get_resqs(self,url,headers):
 		
 		res = requests.get(url=url,headers=headers)

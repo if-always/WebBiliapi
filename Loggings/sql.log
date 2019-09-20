@@ -14,3 +14,11 @@
 2019-09-20 15:07:38 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
 2019-09-20 15:07:38 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Video (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
 2019-09-20 15:07:38 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-09-20 21:14:05 - f:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Video (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-09-20 21:14:05 - f:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-09-20 21:14:05 - f:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Video (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-09-20 21:14:06 - f:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-09-20 21:15:08 - f:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Video (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-09-20 21:15:08 - f:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-09-20 21:15:08 - f:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Video (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-09-20 21:15:08 - f:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成

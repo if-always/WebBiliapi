@@ -4,7 +4,7 @@ from Bilibiliflat.config import *
 from Bilibiliflat.generator import *
 from multiprocessing import Process
 from Bilibiliflat.loggings import initLogging
-logger = initLogging("Loggings/main.log")
+logger = initLogging("F:/GitHub/Webbiliapi/Loggings/main.log")
 
 class Scheduler(object):
     

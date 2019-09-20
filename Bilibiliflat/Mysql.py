@@ -2,7 +2,7 @@ import time
 import pymysql
 from Bilibiliflat.config import *
 from Bilibiliflat.loggings import initLogging
-logger = initLogging("Loggings/sql.log")
+logger = initLogging("F:/GitHub/Webbiliapi/Loggings/sql.log")
 
 
 def Connect(dbname):
