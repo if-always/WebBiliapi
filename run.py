@@ -1,6 +1,5 @@
 from Bilibiliflat.scheduler import Scheduler
 
-##
 def main():
     s = Scheduler()
     s.run()
