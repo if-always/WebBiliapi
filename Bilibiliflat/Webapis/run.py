@@ -1,28 +1,27 @@
 import time
-from Bilibiliflat.Mysql import Select_sql
-from flask import *
 import json
+from flask import *
 from collections import Counter
-
-
+from Bilibiliflat.Mysql import *
+from Bilibiliflat.Webapis.Predatas import *
 app = Flask(__name__)
 app.config.from_object(__name__)
-
+predata()
 
 
 @app.route('/')
 def index():
 
-	sql   = """SELECT `tname`,`weeks`,`ctime`,`length`,`owner` FROM `Video`"""
+	sql   = """SELECT `tname`,`weeks`,`ctime`,`length`,`owner` FROM `Videos`"""
 	datas = Select_sql(dbname="Bilibili",sql=sql)
-	tname = [];ctimes = [];length = [];author = []
+	tnames = [];ctimes = [];length = [];author = []
 	for data in datas:
-		tname.append(data.get('tname'))
+		tnames.append(data.get('tname'))
 		ctimes.append(data.get('ctime'))
 		length.append(int(data.get('length')/60))
 		author.append(data.get('owner'))
 
-	tnames = Counter(tname).most_common(20)
+	tnames = Counter(tnames).most_common(20)
 	length = Counter(length).most_common()
 	author = Counter(author).most_common(500)
 	author = [{"name":a[0],"value":a[1]} for a in author]
@@ -67,7 +66,7 @@ def index():
 @app.route('/score')
 def score():
 
-	sql = "select `length`,`score`,`tname`,`views`,`coins`,`share`,`likes` from Video as a where not exists (select 1 from Video as b where b.aid=a.aid and b.views<a.views)"
+	sql = """SELECT `length`,`score`,`tname`,`views`,`coins`,`share`,`likes` FROM Videos"""
 	datas = Select_sql(dbname="Bilibili",sql=sql) 
 	scores = []
 	videos = json.dumps({"videos": datas})
@@ -85,8 +84,8 @@ def score():
 @app.route('/search')
 def search():
 
-	sql   = """select * from Video as a where not exists (select 1 from Video as b where b.aid=a.aid and b.views<a.views) order by score desc limit 15"""
-	videos = Select_sql(dbname="Bilibili",sql_clause=sql)
+	sql   = """SELECT * FROM Videos ORDER BY score DESC LIMIT 15"""
+	videos = Select_sql(dbname="Bilibili",sql=sql)
 
 	for video in videos:
 		video['ctime'] = time.ctime(video['ctime'])
@@ -98,7 +97,7 @@ def search():
 def keyword():
 	data = request.form
 
-	sql = f"""select `aid`,`href`,`title`,`length`,`score`,`owner`,`views`,`likes`,`danmu`,`reply`,`imgurl`,`ctime`,`tname`,`share` from (select * from Video as a where not exists (select 1 from Video as b where b.aid=a.aid and b.views>a.views)) as total WHERE title like '%{data['keyword']}%'"""
+	sql = f"""SELECT `aid`,`href`,`title`,`length`,`score`,`owner`,`views`,`likes`,`danmu`,`reply`,`imgurl`,`ctime`,`tname`,`share` FROM Videos AS total WHERE title LIKE '%{data['keyword']}%'"""
 
 	videos = Select_sql(dbname="Bilibili",sql=sql)
 	

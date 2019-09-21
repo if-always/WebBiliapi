@@ -63,3 +63,11 @@ def Select_sql(dbname,sql):
 	db_con.close()
 	return data_list
 
+
+def Delete_sql(dbname, tbname, user, passwd):
+
+	sql = f"""DELETE FROM {tbname}"""
+	db_con, db_cur = Connect(dbname)
+	db_cur.execute(sql)
+	db_con.commit()
+	db_con.close()
