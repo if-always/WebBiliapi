@@ -12,23 +12,23 @@ predata()
 @app.route('/')
 def index():
 
-	sql   = """SELECT `tname`,`weeks`,`ctime`,`length`,`owner` FROM `Videos`"""
+	sql   = """SELECT `aid`,`tname`,`weeks`,`ctime`,`length`,`owner`,`title` FROM `Videos`"""
 	datas = Select_sql(dbname="Bilibili",sql=sql)
-	tnames = [];ctimes = [];length = [];author = []
+	tnames = [];ctimes = [];length = [];author = [];counts=[];
 	for data in datas:
 		tnames.append(data.get('tname'))
 		ctimes.append(data.get('ctime'))
 		length.append(int(data.get('length')/60))
 		author.append(data.get('owner'))
-
+		counts.append(''.join(data.get('title').split(' ')[0:-1]))
 	tnames = Counter(tnames).most_common(20)
 	length = Counter(length).most_common()
 	author = Counter(author).most_common(500)
 	author = [{"name":a[0],"value":a[1]} for a in author]
 	length = sorted(length,key=lambda x:x[0])
-	
+	counts = Counter(counts).most_common(20)
 
-	weeks = [];hours = []
+	hours = []
 	for ctime in ctimes:
 		temp = time.ctime(ctime)
 		week = temp.split(' ')[0]
@@ -38,27 +38,11 @@ def index():
 			hour = '24'
 		hour = int(hour)
 		hours.append(hour)
-		if hour <=6 and hour>=0:
-			hour = '凌晨'
-		elif hour<=9 and hour>=6:
-			hour = '早上'
-		elif hour<=12 and hour>=9:
-			hour = '上午'
-		elif hour<=15 and hour>=12:
-			hour = '中午'
-		elif hour<=18 and hour>=15:
-			hour = '下午'
-		elif hour<=21 and hour>=18:
-			hour = '晚上'
-		else:
-			hour = '半夜'
 		
-		week = week+' :'+hour
-		weeks.append(week)
-	ctimes = Counter(weeks).most_common()
+	
 	chours = Counter(hours).most_common()
 	chours = sorted(chours,key=lambda x:x[0])
-	infos  = json.dumps({"chours":chours,"ctimes":ctimes,"length":length,"tnames":tnames,"author":author})
+	infos  = json.dumps({"chours":chours,"counts":counts,"length":length,"tnames":tnames,"author":author})
 	return render_template('index.html',infos=infos)
 
 
@@ -86,10 +70,25 @@ def search():
 
 	sql   = """SELECT * FROM Videos ORDER BY score DESC LIMIT 15"""
 	videos = Select_sql(dbname="Bilibili",sql=sql)
-
+	A = [];B = [];
 	for video in videos:
+
 		video['ctime'] = time.ctime(video['ctime'])
 		video['length']= round(float(video['length']/60),1)
+
+		if video.get('aid') not in A:
+			A.append(video.get('aid'))
+			B.append(video)
+		else:
+			for b in B:
+				if video.get('aid') == b.get('aid'):
+					if video.get('score') > b.get('score'):
+						
+						new_score = video.get('score')
+						
+						b['score'] = new_score
+
+	videos = B
 	return render_template('search.html',videos=videos)
 
 
@@ -100,11 +99,21 @@ def keyword():
 	sql = f"""SELECT `aid`,`href`,`title`,`length`,`score`,`owner`,`views`,`likes`,`danmu`,`reply`,`imgurl`,`ctime`,`tname`,`share` FROM Videos AS total WHERE title LIKE '%{data['keyword']}%'"""
 
 	videos = Select_sql(dbname="Bilibili",sql=sql)
-	
+	A = [];B = [];
 	for video in videos:
 		video['ctime'] = time.ctime(video['ctime'])
 		video['length']= round(float(video['length']/60),1)
-
-
+		if video.get('aid') not in A:
+			A.append(video.get('aid'))
+			B.append(video)
+		else:
+			for b in B:
+				if video.get('aid') == b.get('aid'):
+					if video.get('score') > b.get('score'):
+						
+						new_score = video.get('score')
+						
+						b['score'] = new_score
+	videos = B
 	return json.dumps({"videos": videos})
 

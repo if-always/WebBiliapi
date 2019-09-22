@@ -3,7 +3,7 @@ from Bilibiliflat.Mysql import *
 
 def predata():
 
-	sql = "SELECT * FROM Video AS a WHERE NOT EXISTS (SELECT 1 FROM Video AS b WHERE b.aid=a.aid AND b.views<a.views)"
+	sql = "SELECT * FROM Video WHERE `times` LIKE '%22:2%'"
 	datas = Select_sql(dbname="Bilibili", sql=sql)
 
 	Delete_sql(dbname="Bilibili",tbname="Videos",user="root",passwd="byl091022")

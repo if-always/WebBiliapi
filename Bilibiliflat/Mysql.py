@@ -58,7 +58,8 @@ def Select_sql(dbname,sql):
 		data_list = [dict(zip([col[0] for col in desc], row)) for row in db_cur.fetchall()]
 
 		#data_list = db_cur.fetchall()
-	except Exception:
+	except Exception as e:
+		logger.error(e)
 		logger.error("获取数据出错")
 	db_con.close()
 	return data_list
@@ -68,6 +69,13 @@ def Delete_sql(dbname, tbname, user, passwd):
 
 	sql = f"""DELETE FROM {tbname}"""
 	db_con, db_cur = Connect(dbname)
-	db_cur.execute(sql)
-	db_con.commit()
+	try:
+		logger.info('正在删除数据...')
+		db_cur.execute(sql)
+		db_con.commit()
+		logger.info("删除完成")
+	except Exception as e:
+		logger.error(e)
+		logger.error("删除数据出错")
+	
 	db_con.close()

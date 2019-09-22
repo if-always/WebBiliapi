@@ -16,7 +16,7 @@
     margin-right: 2%;
 }
 
-#index #language {
+#index #videocount {
     display: inline-block;
     height: 300px;
     width: 44%;
@@ -24,7 +24,7 @@
     margin-right: 2%;
 }
 
-#index #district {
+#index #ownercount {
     display: inline-block;
     height: 400px;
     width: 80%;
@@ -32,7 +32,7 @@
     margin-right: 3%;
 }
 
-#index #year {
+#index #onedaydisplay {
     display: inline-block;
     height: 300px;
     width: 44%;
@@ -66,13 +66,13 @@ $(document).ready(function() {
 <div id="index">
     <div class="line">
         <div id="category"></div>
-        <div id="language"></div>
+        <div id="videocount"></div>
     </div>
     <div class="line">
-        <div id="district"></div>
+        <div id="ownercount"></div>
     </div>
     <div class="line">
-        <div id="year"></div>
+        <div id="onedaydisplay"></div>
         <div id="length"></div>
     </div>
 </div>
@@ -81,7 +81,7 @@ $(document).ready(function() {
 
     // 电影类型统计
     var tnames = eval('({{infos|safe}})')['tnames'];
-    var ctimes = eval('({{infos|safe}})')['ctimes'];
+    var counts = eval('({{infos|safe}})')['counts'];
     var chours = eval('({{infos|safe}})')['chours'];
     var lengths= eval('({{infos|safe}})')['length'];
     var authors= eval('({{infos|safe}})')['author'];
@@ -95,24 +95,15 @@ $(document).ready(function() {
     }
 
 
-    var ctime_A = [];
-    var ctime_B = [];
+    var counts_A = [];
+    var counts_B = [];
 
-    for (var i = 0; i < ctimes.length; i++) {
-        ctime_A.push([ctimes[i][0]]);
+    for (var i = 0; i < counts.length; i++) {
+        counts_A.push([counts[i][0]]);
 
-        ctime_B.push([ctimes[i][1]]);
+        counts_B.push([counts[i][1]]);
     }
 
-
-    // var chour_A = []
-    // var chour_B = []
-
-    // for (var i = 0; i < chours.length; i++) {
-    //     chour_A.push([chours[i][0]]);
-
-    //     chour_B.push([chours[i][1]]);
-    // }
 
     require(
         [
@@ -206,90 +197,90 @@ $(document).ready(function() {
             category.setOption(option);
         });
 
-    // 电影语言统计
+    // 出现次数统计
     require(
         [
             'echarts',
             'echarts/chart/pie'
         ],
         function(ec) {
-            var language = ec.init(document.getElementById('language'));
+            var videocount = ec.init(document.getElementById('videocount'));
             option = {
                 title: {
-                    text: '发布时段统计',
+                    text: '上榜次数统计',
                     subtext: '',
                     x: 'center',
                     padding: [20, 10, 10, 10]
                 },
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{a} <br/>{b} : {c}部 ({d}%)"
+                    formatter: "{a} <br/>{b} : {c}次 ({d}%)"
                 },
                 calculable: true,
                 series: [{
-                    name: '发布时段统计',
+                    name: '上榜统计',
                     type: 'pie',
                     radius: '50%',
                     center: ['50%', '55%'],
                     data: [{
-                        name: ctime_A[0],
-                        value:ctime_B[0]
+                        name: counts_A[0],
+                        value:counts_B[0]
                     }, {
-                        name: ctime_A[1],
-                        value:ctime_B[1]
+                        name: counts_A[1],
+                        value:counts_B[1]
                     },{
-                        name: ctime_A[2],
-                        value:ctime_B[2]
+                        name: counts_A[2],
+                        value:counts_B[2]
                     },{
-                        name: ctime_A[3],
-                        value:ctime_B[3]
+                        name: counts_A[3],
+                        value:counts_B[3]
                     },{
-                        name: ctime_A[4],
-                        value:ctime_B[4]
+                        name: counts_A[4],
+                        value:counts_B[4]
                     },{
-                        name: ctime_A[5],
-                        value:ctime_B[5]
+                        name: counts_A[5],
+                        value:counts_B[5]
                     },{
-                        name: ctime_A[6],
-                        value:ctime_B[6]
+                        name: counts_A[6],
+                        value:counts_B[6]
                     },{
-                        name: ctime_A[7],
-                        value:ctime_B[7]
+                        name: counts_A[7],
+                        value:counts_B[7]
                     },{
-                        name: ctime_A[8],
-                        value:ctime_B[8]
+                        name: counts_A[8],
+                        value:counts_B[8]
                     },{
-                        name: ctime_A[9],
-                        value:ctime_B[9]
+                        name: counts_A[9],
+                        value:counts_B[9]
                     },{
-                        name: ctime_A[10],
-                        value:ctime_B[10]
+                        name: counts_A[10],
+                        value:counts_B[10]
                     },{
-                        name: ctime_A[11],
-                        value:ctime_B[11]
+                        name: counts_A[11],
+                        value:counts_B[11]
                     },{
-                        name: ctime_A[12],
-                        value:ctime_B[12]
+                        name: counts_A[12],
+                        value:counts_B[12]
                     },{
-                        name: ctime_A[13],
-                        value:ctime_B[13]
+                        name: counts_A[13],
+                        value:counts_B[13]
                     },{
-                        name: ctime_A[14],
-                        value:ctime_B[14]
+                        name: counts_A[14],
+                        value:counts_B[14]
                     }]
                 }]
             };
-            language.setOption(option);
+            videocount.setOption(option);
         });
 
-    // 上映区域统计
+    // 知名up主
     require(
         [
             'echarts',
             'echarts/chart/wordCloud'
         ],
         function(ec) {
-            var district = ec.init(document.getElementById('district'));
+            var ownercount = ec.init(document.getElementById('ownercount'));
             option = {
                 title: {
                     text: '知名UP主上榜统计',
@@ -335,18 +326,18 @@ $(document).ready(function() {
     
 
             };
-            district.setOption(option);
+            ownercount.setOption(option);
         });
 
 
-    // 上映年份统计
+    // 一天产量分布
     require(
         [
             'echarts',
             'echarts/chart/line'
         ],
         function(ec) {
-            var year = ec.init(document.getElementById('year'));
+            var onedaydisplay = ec.init(document.getElementById('onedaydisplay'));
             option = {
                 title: {
                     text: '一天视频产量统计',
@@ -392,10 +383,10 @@ $(document).ready(function() {
 
                 }]
             };
-            year.setOption(option);
+            onedaydisplay.setOption(option);
         });
 
-    // 电影时长统计
+    // 视频时长统计
     require(
         [
             'echarts',
