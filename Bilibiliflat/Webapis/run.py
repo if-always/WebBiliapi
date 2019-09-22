@@ -86,10 +86,25 @@ def search():
 
 	sql   = """SELECT * FROM Videos ORDER BY score DESC LIMIT 15"""
 	videos = Select_sql(dbname="Bilibili",sql=sql)
-
+	A=[];B=[];
 	for video in videos:
 		video['ctime'] = time.ctime(video['ctime'])
 		video['length']= round(float(video['length']/60),1)
+
+		if video.get('aid') not in A:
+			A.append(video.get('aid'))
+			B.append(video)
+		else:
+			for b in B:
+				if video.get('aid') == b.get('aid'):
+					if video.get('score') > b.get('score'):
+					
+						new_score = video.get('score')
+						
+						b['score'] = new_score
+
+		
+	videos = B
 	return render_template('search.html',videos=videos)
 
 
@@ -100,11 +115,26 @@ def keyword():
 	sql = f"""SELECT `aid`,`href`,`title`,`length`,`score`,`owner`,`views`,`likes`,`danmu`,`reply`,`imgurl`,`ctime`,`tname`,`share` FROM Videos AS total WHERE title LIKE '%{data['keyword']}%'"""
 
 	videos = Select_sql(dbname="Bilibili",sql=sql)
-	
+	A=[];B=[];
 	for video in videos:
 		video['ctime'] = time.ctime(video['ctime'])
 		video['length']= round(float(video['length']/60),1)
 
+		if video.get('aid') not in A:
+			A.append(video.get('aid'))
+			B.append(video)
+		else:
+			for b in B:
+				if video.get('aid') == b.get('aid'):
+					if video.get('score') > b.get('score'):
+					
+						new_score = video.get('score')
+						
+						b['score'] = new_score
 
+		
+	videos = B
+
+		
 	return json.dumps({"videos": videos})
 

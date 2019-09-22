@@ -16,7 +16,7 @@
     margin-right: 2%;
 }
 
-#index #language {
+#index #aidcounts {
     display: inline-block;
     height: 300px;
     width: 44%;
@@ -24,7 +24,7 @@
     margin-right: 2%;
 }
 
-#index #district {
+#index #ownercounts {
     display: inline-block;
     height: 400px;
     width: 80%;
@@ -32,7 +32,7 @@
     margin-right: 3%;
 }
 
-#index #year {
+#index #onedaycounts {
     display: inline-block;
     height: 300px;
     width: 44%;
@@ -66,13 +66,13 @@ $(document).ready(function() {
 <div id="index">
     <div class="line">
         <div id="category"></div>
-        <div id="language"></div>
+        <div id="aidcounts"></div>
     </div>
     <div class="line">
-        <div id="district"></div>
+        <div id="ownercounts"></div>
     </div>
     <div class="line">
-        <div id="year"></div>
+        <div id="onedaycounts"></div>
         <div id="length"></div>
     </div>
 </div>
@@ -206,14 +206,14 @@ $(document).ready(function() {
             category.setOption(option);
         });
 
-    // 电影语言统计
+    // 上榜次数统计
     require(
         [
             'echarts',
             'echarts/chart/pie'
         ],
         function(ec) {
-            var language = ec.init(document.getElementById('language'));
+            var aidcounts = ec.init(document.getElementById('aidcounts'));
             option = {
                 title: {
                     text: '发布时段统计',
@@ -279,17 +279,17 @@ $(document).ready(function() {
                     }]
                 }]
             };
-            language.setOption(option);
+            aidcounts.setOption(option);
         });
 
-    // 上映区域统计
+    // 知名UP主上榜统计
     require(
         [
             'echarts',
             'echarts/chart/wordCloud'
         ],
         function(ec) {
-            var district = ec.init(document.getElementById('district'));
+            var ownercounts = ec.init(document.getElementById('ownercounts'));
             option = {
                 title: {
                     text: '知名UP主上榜统计',
@@ -335,18 +335,18 @@ $(document).ready(function() {
     
 
             };
-            district.setOption(option);
+            ownercounts.setOption(option);
         });
 
 
-    // 上映年份统计
+    // 一天视频产量统计
     require(
         [
             'echarts',
             'echarts/chart/line'
         ],
         function(ec) {
-            var year = ec.init(document.getElementById('year'));
+            var onedaycounts = ec.init(document.getElementById('onedaycounts'));
             option = {
                 title: {
                     text: '一天视频产量统计',
@@ -392,10 +392,10 @@ $(document).ready(function() {
 
                 }]
             };
-            year.setOption(option);
+            onedaycounts.setOption(option);
         });
 
-    // 电影时长统计
+    // 视频时长统计
     require(
         [
             'echarts',
