@@ -1,0 +1,3 @@
+1 写日志时多个进程 造成 PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。
+
+解决办法：https://www.jianshu.com/p/af8d859e9c02?tdsourcetag=s_pctim_aiomsg

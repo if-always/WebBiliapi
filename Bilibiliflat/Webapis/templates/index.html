@@ -81,7 +81,7 @@ $(document).ready(function() {
 
     // 电影类型统计
     var tnames = eval('({{infos|safe}})')['tnames'];
-    var ctimes = eval('({{infos|safe}})')['ctimes'];
+    var weeks  = eval('({{infos|safe}})')['weeks'];
     var chours = eval('({{infos|safe}})')['chours'];
     var lengths= eval('({{infos|safe}})')['length'];
     var authors= eval('({{infos|safe}})')['author'];
@@ -95,13 +95,13 @@ $(document).ready(function() {
     }
 
 
-    var ctime_A = [];
-    var ctime_B = [];
+    var weeks_A = [];
+    var weeks_B = [];
 
-    for (var i = 0; i < ctimes.length; i++) {
-        ctime_A.push([ctimes[i][0]]);
+    for (var i = 0; i < weeks.length; i++) {
+        weeks_A.push([weeks[i][0]]);
 
-        ctime_B.push([ctimes[i][1]]);
+        weeks_B.push([weeks[i][1]]);
     }
 
 
@@ -232,50 +232,26 @@ $(document).ready(function() {
                     radius: '50%',
                     center: ['50%', '55%'],
                     data: [{
-                        name: ctime_A[0],
-                        value:ctime_B[0]
+                        name: weeks_A[0],
+                        value:weeks_B[0]
                     }, {
-                        name: ctime_A[1],
-                        value:ctime_B[1]
+                        name: weeks_A[1],
+                        value:weeks_B[1]
                     },{
-                        name: ctime_A[2],
-                        value:ctime_B[2]
+                        name: weeks_A[2],
+                        value:weeks_B[2]
                     },{
-                        name: ctime_A[3],
-                        value:ctime_B[3]
+                        name: weeks_A[3],
+                        value:weeks_B[3]
                     },{
-                        name: ctime_A[4],
-                        value:ctime_B[4]
+                        name: weeks_A[4],
+                        value:weeks_B[4]
                     },{
-                        name: ctime_A[5],
-                        value:ctime_B[5]
+                        name: weeks_A[5],
+                        value:weeks_B[5]
                     },{
-                        name: ctime_A[6],
-                        value:ctime_B[6]
-                    },{
-                        name: ctime_A[7],
-                        value:ctime_B[7]
-                    },{
-                        name: ctime_A[8],
-                        value:ctime_B[8]
-                    },{
-                        name: ctime_A[9],
-                        value:ctime_B[9]
-                    },{
-                        name: ctime_A[10],
-                        value:ctime_B[10]
-                    },{
-                        name: ctime_A[11],
-                        value:ctime_B[11]
-                    },{
-                        name: ctime_A[12],
-                        value:ctime_B[12]
-                    },{
-                        name: ctime_A[13],
-                        value:ctime_B[13]
-                    },{
-                        name: ctime_A[14],
-                        value:ctime_B[14]
+                        name: weeks_A[6],
+                        value:weeks_B[6]
                     }]
                 }]
             };
@@ -362,10 +338,11 @@ $(document).ready(function() {
                 calculable: true,
                 xAxis: [{
                     type: 'value',
-                    splitNumber:8,
+                    splitNumber:12,
                     min:0,
                     max:24,
-                    minInterval: 1
+                    minInterval: 1,
+
 
                 }],
                 yAxis: [{
@@ -419,8 +396,8 @@ $(document).ready(function() {
                 xAxis: [{
                     type: 'value',
                     min: 0,
-                    max: 32,
-                    splitNumber:8
+                    max: 36,
+                    splitNumber:12
                 }],
                 yAxis: [{
                     type: 'value',

@@ -135,14 +135,7 @@ $(document).ready(function() {
             <div id="coins"></div>
             <div id="likes"></div>
         </div>
-        <!-- <div style="position:relative;">
-            <select style="position:absolute;right:110px;top:0px;z-index:999;height:30px;vertical-align:middle;background-color:#f3f3f3;color:#2D8EA0;border-color:rgba(97,164,177,0.6);">
-                {% for item in districts %}
-                <option value="{{item}}">{{item}}</option>
-                {% endfor %}
-            </select>
-            <div id="average"></div>
-        </div> -->
+        
     </div>
 </div>
 
@@ -203,9 +196,9 @@ $(document).ready(function() {
                 xAxis: [{
                     // name:'单位：10万',
                     type: 'value',
-                    min: 2,
-                    max: 10,
-                    splitNumber:8,
+                    min: 0,
+                    max: 100,
+                    splitNumber:20,
 
                 }],
                 yAxis: [{
