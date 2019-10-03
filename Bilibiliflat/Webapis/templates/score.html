@@ -5,19 +5,16 @@
     padding: 30px 50px;
     text-align: center;
 }
-
 #rate #basic {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
     height: 300px;
 }
-
 #rate #dynamic {
     padding: 20px;
     text-align: center;
 }
-
 #rate #dynamic #control {
     width: 90%;
     margin-left: 5%;
@@ -25,15 +22,12 @@
     margin-bottom: 30px;
     text-align: center;
 }
-
 #rate #dynamic #plots {
     width: 100%;
 }
-
 #rate #categories {
     margin-bottom: 10px;
 }
-
 #rate #districts span,
 #rate #categories span {
     display: inline-block;
@@ -55,13 +49,11 @@
     -moz-transition: background-color .3s;
     -webkit-transition: background-color .3s;
 }
-
 #rate #districts span.active,
 #rate #categories span.active {
     color: #fff;
     background-color: #333;
 }
-
 #rate #views {
     width: 44%;
     height: 300px;
@@ -69,7 +61,6 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-
 #rate #share {
     width: 44%;
     height: 300px;
@@ -77,7 +68,6 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-
 #rate #coins {
     width: 44%;
     height: 300px;
@@ -85,7 +75,6 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-
 #rate #likes {
     width: 44%;
     height: 300px;
@@ -93,7 +82,6 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-
 #rate #average {
     width: 94%;
     margin-left: 3%;
@@ -108,7 +96,6 @@
 <script>
 $(document).ready(function() {
     $('#header #nav #nav2').addClass('active');
-
     $('#header #nav a').mouseenter(function() {
         $('#header #nav a').removeClass('active');
         $(this).addClass('active');
@@ -157,21 +144,16 @@ $(document).ready(function() {
         }
         
         
-
         if (videos[i]['share'] < 100000 && videos[i]['score'] < 5000000) {
             shareDatas.push([videos[i]['share'], videos[i]['score']]);
         }
-
         if (videos[i]['coins'] < 1000000 && videos[i]['score'] < 5000000) {
             coinsDatas.push([videos[i]['coins'], videos[i]['score']]);
         }
-
         if (videos[i]['likes'] < 1000000 && videos[i]['score'] < 5000000) {
             likesDatas.push([videos[i]['likes'], videos[i]['score']]);
         }
     }
-
-
     
     require(
         [
@@ -199,7 +181,6 @@ $(document).ready(function() {
                     min: 0,
                     max: 100,
                     splitNumber:20,
-
                 }],
                 yAxis: [{
                     type: 'value',
@@ -216,9 +197,6 @@ $(document).ready(function() {
             };
             basic.setOption(option);
         });
-
-
-
     
     var viewsOption = {
         title: {
@@ -265,10 +243,8 @@ $(document).ready(function() {
         ],
         function(ec) {
             var views = ec.init(document.getElementById('views'));
-
             views.setOption(viewsOption);
         });
-
     var shareOption = {
         title: {
             text: '分享次数－评分关系',
@@ -314,11 +290,8 @@ $(document).ready(function() {
         ],
         function(ec) {
             var share = ec.init(document.getElementById('share'));
-
             share.setOption(shareOption);
         });
-
-
     var coinsOption = {
         title: {
             text: '投币次数－评分关系',
@@ -364,10 +337,8 @@ $(document).ready(function() {
         ],
         function(ec) {
             var coins = ec.init(document.getElementById('coins'));
-
             coins.setOption(coinsOption);
         });
-
     var likesOption = {
         title: {
             text: '喜欢次数－评分关系',
@@ -413,10 +384,8 @@ $(document).ready(function() {
         ],
         function(ec) {
             var likes = ec.init(document.getElementById('likes'));
-
             likes.setOption(likesOption);
         });
-
     $('#rate #categories span').click(function() {
         $('#rate #categories span').removeClass('active');
         $(this).addClass('active');
@@ -465,7 +434,6 @@ $(document).ready(function() {
                     likes.setOption(likesOption);
                 });
         }
-
         else {
             var temp1 = [];
             var temp2 = [];
@@ -521,7 +489,6 @@ $(document).ready(function() {
                 });
         }
     });
-
     
 });
     

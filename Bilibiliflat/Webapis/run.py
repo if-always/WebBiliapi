@@ -14,35 +14,28 @@ def index():
 
 	sql   = """SELECT `aid`,`tname`,`weeks`,`ctime`,`length`,`owner`,`title` FROM `Videos`"""
 	datas = Select_sql(dbname="Bilibili",sql=sql)
-<<<<<<< HEAD
-	tnames = [];ctimes = [];length = [];author = [];counts=[];
-=======
+
 	tnames = [];ctimes = [];length = [];author = [];aids=[];
->>>>>>> alanda
+
 	for data in datas:
 		tnames.append(data.get('tname'))
 		ctimes.append(data.get('ctime'))
 		length.append(int(data.get('length')/60))
 		author.append(data.get('owner'))
-<<<<<<< HEAD
-		counts.append(''.join(data.get('title').split(' ')[0:-1]))
-=======
+
 		
 
 	
->>>>>>> alanda
+
 	tnames = Counter(tnames).most_common(20)
 	length = Counter(length).most_common()
 	author = Counter(author).most_common(500)
 	author = [{"name":a[0],"value":a[1]} for a in author]
 	length = sorted(length,key=lambda x:x[0])
-	counts = Counter(counts).most_common(20)
 
-<<<<<<< HEAD
-	hours = []
-=======
+
 	hours = [];weeks = []
->>>>>>> alanda
+
 	for ctime in ctimes:
 		temp = time.ctime(ctime)
 		week = temp.split(' ')[0]
@@ -52,19 +45,13 @@ def index():
 			hour = '24'
 		hour = int(hour)
 		hours.append(hour)
-<<<<<<< HEAD
-		
-	
-	chours = Counter(hours).most_common()
-	chours = sorted(chours,key=lambda x:x[0])
-	infos  = json.dumps({"chours":chours,"counts":counts,"length":length,"tnames":tnames,"author":author})
-=======
+
 
 	weeks  = Counter(weeks).most_common()
 	chours = Counter(hours).most_common()
 	chours = sorted(chours,key=lambda x:x[0])
 	infos  = json.dumps({"chours":chours,"weeks":weeks,"length":length,"tnames":tnames,"author":author})
->>>>>>> alanda
+
 	return render_template('index.html',infos=infos)
 
 
@@ -92,11 +79,9 @@ def search():
 
 	sql   = """SELECT * FROM Videos ORDER BY score DESC LIMIT 15"""
 	videos = Select_sql(dbname="Bilibili",sql=sql)
-<<<<<<< HEAD
-	A = [];B = [];
-=======
+
 	A=[];B=[];
->>>>>>> alanda
+
 	for video in videos:
 
 		video['ctime'] = time.ctime(video['ctime'])
@@ -109,19 +94,12 @@ def search():
 			for b in B:
 				if video.get('aid') == b.get('aid'):
 					if video.get('score') > b.get('score'):
-<<<<<<< HEAD
-						
-=======
+
 					
->>>>>>> alanda
 						new_score = video.get('score')
 						
 						b['score'] = new_score
 
-<<<<<<< HEAD
-=======
-		
->>>>>>> alanda
 	videos = B
 	return render_template('search.html',videos=videos)
 
@@ -133,18 +111,13 @@ def keyword():
 	sql = f"""SELECT `aid`,`href`,`title`,`length`,`score`,`owner`,`views`,`likes`,`danmu`,`reply`,`imgurl`,`ctime`,`tname`,`share` FROM Videos AS total WHERE title LIKE '%{data['keyword']}%'"""
 
 	videos = Select_sql(dbname="Bilibili",sql=sql)
-<<<<<<< HEAD
-	A = [];B = [];
-	for video in videos:
-		video['ctime'] = time.ctime(video['ctime'])
-		video['length']= round(float(video['length']/60),1)
-=======
+
 	A=[];B=[];
 	for video in videos:
 		video['ctime'] = time.ctime(video['ctime'])
 		video['length']= round(float(video['length']/60),1)
 
->>>>>>> alanda
+
 		if video.get('aid') not in A:
 			A.append(video.get('aid'))
 			B.append(video)
@@ -152,13 +125,6 @@ def keyword():
 			for b in B:
 				if video.get('aid') == b.get('aid'):
 					if video.get('score') > b.get('score'):
-<<<<<<< HEAD
-						
-						new_score = video.get('score')
-						
-						b['score'] = new_score
-	videos = B
-=======
 					
 						new_score = video.get('score')
 						
@@ -168,6 +134,6 @@ def keyword():
 	videos = B
 
 		
->>>>>>> alanda
+
 	return json.dumps({"videos": videos})
 

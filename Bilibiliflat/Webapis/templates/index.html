@@ -13,45 +13,21 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-#index #videocount {
-=======
-=======
->>>>>>> alanda
 #index #aidcounts {
->>>>>>> alanda
     display: inline-block;
     height: 300px;
     width: 44%;
     margin-left: 2%;
     margin-right: 2%;
 }
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-#index #ownercount {
-=======
-=======
->>>>>>> alanda
 #index #ownercounts {
->>>>>>> alanda
     display: inline-block;
     height: 400px;
     width: 80%;
     margin-left: 3%;
     margin-right: 3%;
 }
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-#index #onedaydisplay {
-=======
-=======
->>>>>>> alanda
 #index #onedaycounts {
->>>>>>> alanda
     display: inline-block;
     height: 300px;
     width: 44%;
@@ -83,15 +59,6 @@ $(document).ready(function() {
 <div id="index">
     <div class="line">
         <div id="category"></div>
-<<<<<<< HEAD
-        <div id="videocount"></div>
-    </div>
-    <div class="line">
-        <div id="ownercount"></div>
-    </div>
-    <div class="line">
-        <div id="onedaydisplay"></div>
-=======
         <div id="aidcounts"></div>
     </div>
     <div class="line">
@@ -99,7 +66,6 @@ $(document).ready(function() {
     </div>
     <div class="line">
         <div id="onedaycounts"></div>
->>>>>>> alanda
         <div id="length"></div>
     </div>
 </div>
@@ -107,11 +73,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     // 电影类型统计
     var tnames = eval('({{infos|safe}})')['tnames'];
-<<<<<<< HEAD
-    var counts = eval('({{infos|safe}})')['counts'];
-=======
     var weeks  = eval('({{infos|safe}})')['weeks'];
->>>>>>> alanda
     var chours = eval('({{infos|safe}})')['chours'];
     var lengths= eval('({{infos|safe}})')['length'];
     var authors= eval('({{infos|safe}})')['author'];
@@ -122,38 +84,18 @@ $(document).ready(function() {
         tname_A.push([tnames[i][0]]);
         tname_B.push([tnames[i][1]]);
     }
-<<<<<<< HEAD
-
-
-<<<<<<< HEAD
-    var counts_A = [];
-    var counts_B = [];
-
-    for (var i = 0; i < counts.length; i++) {
-        counts_A.push([counts[i][0]]);
-
-        counts_B.push([counts[i][1]]);
-=======
-=======
->>>>>>> alanda
     var weeks_A = [];
     var weeks_B = [];
     for (var i = 0; i < weeks.length; i++) {
         weeks_A.push([weeks[i][0]]);
         weeks_B.push([weeks[i][1]]);
->>>>>>> alanda
     }
-<<<<<<< HEAD
-
-
-=======
     // var chour_A = []
     // var chour_B = []
     // for (var i = 0; i < chours.length; i++) {
     //     chour_A.push([chours[i][0]]);
     //     chour_B.push([chours[i][1]]);
     // }
->>>>>>> alanda
     require(
         [
             'echarts',
@@ -244,97 +186,32 @@ $(document).ready(function() {
             };
             category.setOption(option);
         });
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-    // 出现次数统计
-=======
-=======
->>>>>>> alanda
     // 上榜次数统计
->>>>>>> alanda
     require(
         [
             'echarts',
             'echarts/chart/pie'
         ],
         function(ec) {
-<<<<<<< HEAD
-            var videocount = ec.init(document.getElementById('videocount'));
-=======
             var aidcounts = ec.init(document.getElementById('aidcounts'));
->>>>>>> alanda
             option = {
                 title: {
-                    text: '上榜次数统计',
+                    text: '发布时段统计',
                     subtext: '',
                     x: 'center',
                     padding: [20, 10, 10, 10]
                 },
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{a} <br/>{b} : {c}次 ({d}%)"
+                    formatter: "{a} <br/>{b} : {c}部 ({d}%)"
                 },
                 calculable: true,
                 series: [{
-                    name: '上榜统计',
+                    name: '发布时段统计',
                     type: 'pie',
                     radius: '50%',
                     center: ['50%', '55%'],
                     data: [{
-<<<<<<< HEAD
-                        name: counts_A[0],
-                        value:counts_B[0]
-                    }, {
-                        name: counts_A[1],
-                        value:counts_B[1]
-                    },{
-                        name: counts_A[2],
-                        value:counts_B[2]
-                    },{
-                        name: counts_A[3],
-                        value:counts_B[3]
-                    },{
-                        name: counts_A[4],
-                        value:counts_B[4]
-                    },{
-                        name: counts_A[5],
-                        value:counts_B[5]
-                    },{
-                        name: counts_A[6],
-                        value:counts_B[6]
-                    },{
-                        name: counts_A[7],
-                        value:counts_B[7]
-                    },{
-                        name: counts_A[8],
-                        value:counts_B[8]
-                    },{
-                        name: counts_A[9],
-                        value:counts_B[9]
-                    },{
-                        name: counts_A[10],
-                        value:counts_B[10]
-                    },{
-                        name: counts_A[11],
-                        value:counts_B[11]
-                    },{
-                        name: counts_A[12],
-                        value:counts_B[12]
-                    },{
-                        name: counts_A[13],
-                        value:counts_B[13]
-                    },{
-                        name: counts_A[14],
-                        value:counts_B[14]
-                    }]
-                }]
-            };
-            videocount.setOption(option);
-        });
-
-    // 知名up主
-=======
                         name: weeks_A[0],
                         value:weeks_B[0]
                     }, {
@@ -361,18 +238,13 @@ $(document).ready(function() {
             aidcounts.setOption(option);
         });
     // 知名UP主上榜统计
->>>>>>> alanda
     require(
         [
             'echarts',
             'echarts/chart/wordCloud'
         ],
         function(ec) {
-<<<<<<< HEAD
-            var ownercount = ec.init(document.getElementById('ownercount'));
-=======
             var ownercounts = ec.init(document.getElementById('ownercounts'));
->>>>>>> alanda
             option = {
                 title: {
                     text: '知名UP主上榜统计',
@@ -415,28 +287,16 @@ $(document).ready(function() {
                 
     
             };
-<<<<<<< HEAD
-            ownercount.setOption(option);
-        });
-
-
-    // 一天产量分布
-=======
             ownercounts.setOption(option);
         });
     // 一天视频产量统计
->>>>>>> alanda
     require(
         [
             'echarts',
             'echarts/chart/line'
         ],
         function(ec) {
-<<<<<<< HEAD
-            var onedaydisplay = ec.init(document.getElementById('onedaydisplay'));
-=======
             var onedaycounts = ec.init(document.getElementById('onedaycounts'));
->>>>>>> alanda
             option = {
                 title: {
                     text: '一天视频产量统计',
@@ -479,11 +339,7 @@ $(document).ready(function() {
             }
                 }]
             };
-<<<<<<< HEAD
-            onedaydisplay.setOption(option);
-=======
             onedaycounts.setOption(option);
->>>>>>> alanda
         });
     // 视频时长统计
     require(
