@@ -3,11 +3,9 @@
 #index {
     padding: 30px 50px;
 }
-
 #index .line {
     text-align: center;
 }
-
 #index #category {
     display: inline-block;
     height: 300px;
@@ -15,7 +13,6 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-
 #index #aidcounts {
     display: inline-block;
     height: 300px;
@@ -23,7 +20,6 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-
 #index #ownercounts {
     display: inline-block;
     height: 400px;
@@ -31,7 +27,6 @@
     margin-left: 3%;
     margin-right: 3%;
 }
-
 #index #onedaycounts {
     display: inline-block;
     height: 300px;
@@ -39,7 +34,6 @@
     margin-left: 2%;
     margin-right: 2%;
 }
-
 #index #length {
     display: inline-block;
     height: 300px;
@@ -52,7 +46,6 @@
 <script>
 $(document).ready(function() {
     $('#header #nav #nav1').addClass('active');
-
     $('#header #nav a').mouseenter(function() {
         $('#header #nav a').removeClass('active');
         $(this).addClass('active');
@@ -78,7 +71,6 @@ $(document).ready(function() {
 </div>
 <script>
 $(document).ready(function() {
-
     // 电影类型统计
     var tnames = eval('({{infos|safe}})')['tnames'];
     var weeks  = eval('({{infos|safe}})')['weeks'];
@@ -90,30 +82,20 @@ $(document).ready(function() {
    
     for (var i = 0; i < tnames.length; i++) {
         tname_A.push([tnames[i][0]]);
-
         tname_B.push([tnames[i][1]]);
     }
-
-
     var weeks_A = [];
     var weeks_B = [];
-
     for (var i = 0; i < weeks.length; i++) {
         weeks_A.push([weeks[i][0]]);
-
         weeks_B.push([weeks[i][1]]);
     }
-
-
     // var chour_A = []
     // var chour_B = []
-
     // for (var i = 0; i < chours.length; i++) {
     //     chour_A.push([chours[i][0]]);
-
     //     chour_B.push([chours[i][1]]);
     // }
-
     require(
         [
             'echarts',
@@ -122,7 +104,6 @@ $(document).ready(function() {
         function(ec) {
             var category = ec.init(document.getElementById('category'));
         
-
             option = {
                 title: {
                     text: "视频类型统计",
@@ -205,7 +186,6 @@ $(document).ready(function() {
             };
             category.setOption(option);
         });
-
     // 上榜次数统计
     require(
         [
@@ -257,7 +237,6 @@ $(document).ready(function() {
             };
             aidcounts.setOption(option);
         });
-
     // 知名UP主上榜统计
     require(
         [
@@ -277,7 +256,6 @@ $(document).ready(function() {
                         return params.seriesName + '<br/>' + params.name + ' : ' + params.value;
                     }
                 },
-
                 series: [{
                     type: 'wordCloud',
                     size: ['90%', '85%'],
@@ -296,7 +274,6 @@ $(document).ready(function() {
                                 Math.round(Math.random() * 255)
                             ].join(',') + ')';
                 }
-
                       }
                     },
                     // left: 'center',
@@ -309,12 +286,9 @@ $(document).ready(function() {
                   }]
                 
     
-
             };
             ownercounts.setOption(option);
         });
-
-
     // 一天视频产量统计
     require(
         [
@@ -342,8 +316,6 @@ $(document).ready(function() {
                     min:0,
                     max:24,
                     minInterval: 1,
-
-
                 }],
                 yAxis: [{
                     type: 'value',
@@ -354,7 +326,6 @@ $(document).ready(function() {
                     symbol: 'none',
                     smooth:true,
                     data: chours,
-
                     markPoint: {
                 data: [
                     {type: 'max', name: '最大值'},
@@ -366,12 +337,10 @@ $(document).ready(function() {
                     {type: 'average', name: '平均值'}
                 ]
             }
-
                 }]
             };
             onedaycounts.setOption(option);
         });
-
     // 视频时长统计
     require(
         [
