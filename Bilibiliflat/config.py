@@ -1,5 +1,7 @@
 Spider = False
 
+#Loggpath = 'F:/GitHub/Webbiliapi/Loggings'
+
 Webapi = True
 
 CYCLE = 20

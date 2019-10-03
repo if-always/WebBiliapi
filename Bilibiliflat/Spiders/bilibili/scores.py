@@ -1,6 +1,7 @@
 import time
 import datetime
 import requests
+from Bilibiliflat.config import *
 from Bilibiliflat.loggings import initLogging
 from Bilibiliflat.Spiders.bilibili.Header import Get_headers
 from pyquery import PyQuery as pq
@@ -10,7 +11,7 @@ class Biliscores(object):
 	def __init__(self, arg):
 		super(Biliscores, self).__init__()
 		self.url = arg
-		self.logger = initLogging("F:/GitHub/Webbiliapi/Loggings/spider.log")
+		self.logger = initLogging("F:/GitHub/WebBiliapi/Loggings/spider.log")
 	def Get_resqs(self,url,headers):
 		
 		res = requests.get(url=url,headers=headers)
