@@ -52,15 +52,20 @@
 }
 
 #search .video .video_cover {
-    width: 180px;
-    height: 140px;
-    border-radius: 5px;
+    width: 240px;
+    height: 160px;
+    border-radius: 9px;
     background-size: cover;
     background-position: center;
     position: absolute;
+<<<<<<< Updated upstream
     left: 10;
     top: 15;
 
+=======
+    left: 5;
+    top: 7;
+>>>>>>> Stashed changes
     transition: box-shadow .3s;
     -o-transition: box-shadow .3s;
     -ms-transition: box-shadow .3s;
@@ -128,7 +133,7 @@ $(document).ready(function() {
         {% for item in videos %}
         <div class="video">
             <a href="{{item.href}}" target="_blank">
-                <div class="video_cover" style="background-image:url({{item.imgurl}})"></div>
+                <div class="video_cover" style="background-image:url('{{item.imgurl}}');"></div>
             </a>
             <div class="video_info">
                 <h4>
@@ -158,6 +163,7 @@ $(document).ready(function() {
                 </p> -->
             </div>
         </div>
+        <br>
         {% endfor %}
     </div>
     <div id="searchResult" style="display:none;">

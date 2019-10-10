@@ -1,3 +1,19 @@
 1 写日志时多个进程 造成 PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。
 
+<<<<<<< Updated upstream
 解决办法：https://www.jianshu.com/p/af8d859e9c02?tdsourcetag=s_pctim_aiomsg
+=======
+解决办法：https://www.jianshu.com/p/af8d859e9c02?tdsourcetag=s_pctim_aiomsg
+
+
+2 background-image:url引用网络图片无法显示
+
+解决办法 ：https://bbs.csdn.net/topics/392425066
+
+在引用链接时,浏览器对地址发起请求加上了refre这个请求头
+在html头部标签内加上
+<meta name="referrer" content="no-referrer">
+应该就能解决你的问题了
+3
+4
+>>>>>>> Stashed changes
