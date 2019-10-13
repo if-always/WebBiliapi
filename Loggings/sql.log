@@ -177,6 +177,7 @@
 2019-10-03 17:35:48 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
 2019-10-03 17:35:48 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
 2019-10-03 17:35:49 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+<<<<<<< Updated upstream
 2019-10-10 21:30:00 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 73 - INFO : 正在删除数据...
 2019-10-10 21:30:01 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 76 - INFO : 删除完成
 2019-10-10 21:30:01 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
@@ -322,3 +323,69 @@
 2019-10-10 21:53:06 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
 2019-10-10 21:53:08 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
 >>>>>>> Stashed changes
+=======
+2019-10-12 15:54:51 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 73 - INFO : 正在删除数据...
+2019-10-12 15:54:51 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 76 - INFO : 删除完成
+2019-10-12 15:54:52 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-12 15:54:52 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-12 15:54:52 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-12 15:54:58 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-12 15:55:03 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 73 - INFO : 正在删除数据...
+2019-10-12 15:55:03 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 76 - INFO : 删除完成
+2019-10-12 15:55:03 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-12 15:55:03 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-12 15:55:03 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-12 15:55:09 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-12 15:55:13 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 73 - INFO : 正在删除数据...
+2019-10-12 15:55:14 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 76 - INFO : 删除完成
+2019-10-12 15:55:14 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-12 15:55:14 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-12 15:55:14 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-12 15:55:20 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-12 15:55:23 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 73 - INFO : 正在删除数据...
+2019-10-12 15:55:23 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 76 - INFO : 删除完成
+2019-10-12 15:55:23 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-12 15:55:23 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-12 15:55:23 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-12 15:55:29 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-13 14:01:51 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 73 - INFO : 正在删除数据...
+2019-10-13 14:01:51 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 76 - INFO : 删除完成
+2019-10-13 14:01:51 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:01:51 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-13 14:01:51 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:01:53 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-13 14:01:56 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 73 - INFO : 正在删除数据...
+2019-10-13 14:01:56 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 76 - INFO : 删除完成
+2019-10-13 14:01:56 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:01:56 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-13 14:01:56 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:01:58 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-13 14:02:00 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 73 - INFO : 正在删除数据...
+2019-10-13 14:02:00 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 76 - INFO : 删除完成
+2019-10-13 14:02:00 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:02:00 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-13 14:02:00 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:02:02 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-13 14:02:03 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 73 - INFO : 正在删除数据...
+2019-10-13 14:02:04 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Delete_sql - 76 - INFO : 删除完成
+2019-10-13 14:02:04 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:02:04 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-13 14:02:04 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:02:06 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+>>>>>>> Stashed changes
+2019-10-13 14:04:57 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:04:57 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-13 14:04:57 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:04:59 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-13 14:05:01 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:05:01 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-13 14:05:01 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:05:02 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-13 14:05:05 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:05:05 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-13 14:05:05 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:05:07 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
+2019-10-13 14:05:08 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 29 - DEBUG : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:05:08 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 39 - INFO : 正在插入数据...
+2019-10-13 14:05:08 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 40 - INFO : INSERT INTO Videos (aid,cid,href,rank,dates,times,weeks,score,title,tname,owner,ownid,owurl,views,danmu,reply,favou,coins,share,likes,ctime,length,imgurl) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+2019-10-13 14:05:10 - F:\GitHub\WebBiliapi\Bilibiliflat\Mysql.py - Insert_args - 43 - INFO : 插入完成
