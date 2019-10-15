@@ -57,8 +57,9 @@ def score():
 	scores = []
 	videos = json.dumps({"videos": datas})
 	for data in datas:
-		score = round(float(data.get('score')/115000),1)
-		scores.append(score)
+		if data.get('score') < 5000000:
+			score = round(float(data.get('score')/50000),1)
+			scores.append(score)
 
 	scores = Counter(scores).most_common()
 	scores = sorted(scores,key=lambda x:x[0])

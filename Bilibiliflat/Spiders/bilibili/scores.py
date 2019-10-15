@@ -3,15 +3,18 @@ import datetime
 import requests
 from Bilibiliflat.config import *
 from Bilibiliflat.loggings import initLogging
-from Bilibiliflat.Spiders.bilibili.Header import Get_headers
+from Bilibiliflat.Spiders.Bilibili.Header import Get_headers
 from pyquery import PyQuery as pq
 
 class Biliscores(object):
+
 	"""docstring for Biliscores"""
 	def __init__(self, arg):
+
 		super(Biliscores, self).__init__()
 		self.url = arg
 		self.logger = initLogging("F:/GitHub/WebBiliapi/Loggings/spider.log")
+	
 	def Get_resqs(self,url,headers):
 		
 		res = requests.get(url=url,headers=headers)
@@ -33,7 +36,7 @@ class Biliscores(object):
 
 
 		for info in infos:
-			#print(info)
+			
 			try:
 				rank = info.find("div.num").text()
 				href = "https:"+info.find("div.content div.img a").attr("href")
@@ -83,15 +86,13 @@ class Biliscores(object):
 				print(e)
 				self.logger.error(title + " " +str(e))
 			time.sleep(0.5)
-			#break
+			
 	def Get_infos(self,href):
 		
 		aid = href.split("/")[-2][2:]
 		temp = self.Get_resqs(f"https://api.bilibili.com/x/web-interface/view?aid={aid}",Get_headers("infos",href)).json()
-		#print(href)
-		#print(f"https://api.bilibili.com/x/web-interface/view?aid={aid}")
 		info = temp.get("data")
-		#print(info)
+		
 		cid  = info.get('cid')
 		tname= info.get('tname')
 		owner= info.get('owner').get('name')

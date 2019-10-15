@@ -3,7 +3,7 @@ import requests
 from Bilibiliflat.Mysql import *
 from Bilibiliflat.config import *
 from Bilibiliflat.loggings import initLogging
-from Bilibiliflat.Spiders.bilibili.scores import Biliscores
+from Bilibiliflat.Spiders.Bilibili.Scores import Biliscores
 logger = initLogging("F:/GitHub/WebBiliapi/Loggings/main.log")
 
 
@@ -36,27 +36,22 @@ class SpiderGenerator(object):
                 args_list.append(k)
             Insert_args(db_name=self.args.get('dbname'), table_name=self.args.get('tbname'), data_dict_list=result, arg_list=args_list)
             logger.info("数据库中数据插入完成")
-
         except Exception as e:
             logger.error(e)
+
 
 class BilispiderGenerator(SpiderGenerator):
     def __init__(self, website='Bilibili'):
         """
         初始化操作
         :param website: 站点名称
-        :param browser: 使用的浏览器
         """
         SpiderGenerator.__init__(self, website)
         self.website = website
         
     def Get_info(self,url):
-        """
-        生成Cookies
-        :param username: 用户名
-        :param password: 密码
-        :return: 用户名和Cookies
-        """
+
+        
         return Biliscores(url).main()
         pass
 
