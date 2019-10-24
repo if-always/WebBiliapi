@@ -12,7 +12,8 @@
     <link href='http://www.youziku.com/webfont/CSS/5a5eb6e5723496ed8dc0cfd792fd4687' rel='stylesheet' type='text/css' />
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="{{url_for('static',filename='js/ECharts/echarts-wordcloud.js')}}"></script>
-    <script src="{{url_for('static',filename='js/ECharts/echarts.js')}}"></script>{% block style %} {% endblock %}
+    <script src="{{url_for('static',filename='js/ECharts/echarts.js')}}"></script>
+    <script src="{{url_for('static',filename='js/lib/L2Dwidget.min.js')}}"></script>{% block style %} {% endblock %}
     <style>
     	body {
         font-family: Microsoft Yahei;
@@ -187,7 +188,29 @@
         <p>Copyright © 2019 <a href="https://www.jianshu.com/u/426a6f0a2dfb" target="_blank">薄堉林</a>&nbsp &nbsp if-always@163.com</p>
     </div>
 
-			
+	
+    <script type="text/javascript">
+      L2Dwidget
+        .on('*', (name) => {
+          console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+        })
+        .init({
+          dialog: {
+            // 开启对话框
+            enable: true,
+            script: {
+              // 每空闲 10 秒钟，显示一条一言
+              'every idle 10s': '$hitokoto$',
+              // 当触摸到星星图案
+              'hover .star': '星星在天上而你在我心里 (*/ω＼*)',
+              // 当触摸到角色身体
+              'tap body': '哎呀！别碰我！',
+              // 当触摸到角色头部
+              'tap face': '人家已经不是小孩子了！'
+            }
+          }
+        });
+    </script>		
 </body>
 
 </html>
