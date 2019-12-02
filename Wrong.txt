@@ -17,3 +17,12 @@
 3
 4
 >>>>>>> Stashed changes
+
+5 aid的url会变  之前我用split根据/匹配aid  后来 url中少了了一个/
+从而出现问题 ，解决办法使用正则匹配数字
+https://www.bilibili.com/video/av77007964/
+
+url.split('/')[2][2:]
+变成
+https://www.bilibili.com/video/av77007964
+aid = ''.join(re.findall(r"\d",href))

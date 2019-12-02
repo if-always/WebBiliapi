@@ -45,5 +45,27 @@ def Delete_sql(dbname, tbname, user, passwd):
 	db_con.close()
 
 
-# A = Select_sql("Bilibili","""SELECT * FROM `Video` WHERE `dates` = '2019-10-16' AND `owner` = '朱一旦的枯燥生活'""")
-# print(A)
+def Insert_args(db_name, table_name, data_dict_list, arg_list):
+	
+	db_con, db_cur = Connect(db_name)
+	insertion_part1 = ','.join(arg_list)
+	insertion_part2 = ','.join(["%s" for i in range(len(arg_list))])
+	insert_clause = '''INSERT INTO %s (%s) VALUES (%s)''' % (table_name, insertion_part1, insertion_part2)
+	
+
+	insert_param = []
+	for data_dict in data_dict_list:
+		insert_param.append(tuple((data_dict.get(arg) for arg in arg_list)))
+	insert_param_set = set(insert_param)  # set去重
+	insert_param = list(insert_param_set)
+
+	try:
+		
+		db_cur.executemany(insert_clause,insert_param)
+		db_con.commit()
+		print("插入完成")
+
+	except Exception as e:
+		print(e)
+		db_con.rollback()
+		db_con.close()
