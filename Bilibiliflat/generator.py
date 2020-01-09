@@ -4,7 +4,7 @@ from Bilibiliflat.Mysql import *
 from Bilibiliflat.config import *
 from Bilibiliflat.loggings import initLogging
 from Bilibiliflat.Spiders.Bilibili.Scores import Biliscores
-logger = initLogging("F:/GitHub/WebBiliapi/Loggings/main.log")
+logger = initLogging("C:\\Users\\17121\\OneDrive\\Githubproject\\Crawlitems\\WebBiliapi\\Loggings\\main.log")
 
 
 class SpiderGenerator(object):
