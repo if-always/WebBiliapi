@@ -71,3 +71,8 @@ def Delete_sql(dbname, tbname, user, passwd):
 	db_cur.execute(sql)
 	db_con.commit()
 	db_con.close()
+
+
+if __name__ == '__main__':
+	sql = """SELECT * FROM Users WHERE dates = (SELECT MAX(dates) FROM Users GROUP BY `cid`)"""
+	

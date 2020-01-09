@@ -15,7 +15,8 @@ class User:
 	def __init__(self,sql):
 		
 		self.id = Mysql.Select_sql("Bilibili",sql)
-		print(len(self.id))
+
+		
 		self.header_info = {
 			'Accept': 'application/json, text/plain, */*',
 			'Origin': 'https://space.bilibili.com',
@@ -113,8 +114,10 @@ class User:
 				}
 			break
 users = User("""SELECT DISTINCT `ownid` FROM `Videos`""")
+
 a = users.get_infos()
 result = list(a)
+print(result)
 args_list = []
 for k,v in result[0].items():
 	args_list.append(k)
